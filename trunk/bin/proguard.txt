@@ -1,0 +1,39 @@
+# view AndroidManifest.xml #generated:81
+-keep class com.voix.AskAACancel { <init>(...); }
+
+# view AndroidManifest.xml #generated:74
+-keep class com.voix.AskDelete { <init>(...); }
+
+# view AndroidManifest.xml #generated:60
+-keep class com.voix.AskOnCall { <init>(...); }
+
+# view AndroidManifest.xml #generated:52
+-keep class com.voix.BWFilesBrowser { <init>(...); }
+
+# view AndroidManifest.xml #generated:46
+-keep class com.voix.BWList { <init>(...); }
+
+# view AndroidManifest.xml #generated:88
+-keep class com.voix.BootRec { <init>(...); }
+
+# view AndroidManifest.xml #generated:27
+-keep class com.voix.Browser { <init>(...); }
+
+# view AndroidManifest.xml #generated:33
+-keep class com.voix.ContSel { <init>(...); }
+
+# view AndroidManifest.xml #generated:20
+-keep class com.voix.Prefs { <init>(...); }
+
+# view AndroidManifest.xml #generated:16
+-keep class com.voix.RVoixSrv { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
+-keep class com.voix.RecSndFile { <init>(...); }
+
+# view AndroidManifest.xml #generated:7
+-keep class com.voix.Secretaire { <init>(...); }
+
+# view AndroidManifest.xml #generated:18
+-keep class com.voix.TattooHack { <init>(...); }
+

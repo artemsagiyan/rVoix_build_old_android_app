@@ -1,0 +1,154 @@
+diff -Nur Settings.old//res/values/arrays.xml Settings/res/values/arrays.xml
+--- Settings.old//res/values/arrays.xml	2010-12-17 19:47:34.449378918 +0200
++++ Settings/res/values/arrays.xml	2010-12-17 19:46:45.237859237 +0200
+@@ -340,6 +340,7 @@
+         <item>@string/date_and_time_settings_title</item>
+         <item>@string/language_settings</item>
+         <item>@string/about_settings</item>
++        <item>@string/record_settings</item>
+     </array>
+     <string-array name="brightnessWidget">
+         <item>Auto/Dim/40%/100%</item>
+diff -Nur Settings.old//res/values/public.xml Settings/res/values/public.xml
+--- Settings.old//res/values/public.xml	2010-12-17 19:47:35.509410802 +0200
++++ Settings/res/values/public.xml	2010-12-17 19:46:46.137887746 +0200
+@@ -177,6 +177,7 @@
+     <public type="drawable" name="ic_appwidget_settings_wifi_ap_off" id="0x7f0200ac" />
+     <public type="drawable" name="ic_appwidget_settings_wifi_ap_on" id="0x7f0200ad" />
+     <public type="drawable" name="icon" id="0x7f0200ae" />
++    <public type="drawable" name="ic_settings_record" id="0x7f0200af" />
+     <public type="layout" name="apn_preference_layout" id="0x7f030001" />
+     <public type="layout" name="band_mode" id="0x7f030002" />
+     <public type="layout" name="battery_history" id="0x7f030003" />
+@@ -2229,6 +2230,9 @@
+     <public type="string" name="ringModeVibrateAsOnDescription" id="0x7f0a070f" />
+     <public type="string" name="monitorDataRoamingDescription" id="0x7f0a0710" />
+     <public type="string" name="possibleButtons" id="0x7f0a0711" />
++    <public type="string" name="record_settings" id="0x7f0a0712" />
++    <public type="string" name="record_settings_title" id="0x7f0a0713" />
++    <public type="string" name="record_settings_summary" id="0x7f0a0714" />
+     <public type="style" name="info_label" id="0x7f0b0000" />
+     <public type="style" name="info_value" id="0x7f0b0001" />
+     <public type="style" name="info_small" id="0x7f0b0002" />
+diff -Nur Settings.old//res/values/strings.xml Settings/res/values/strings.xml
+--- Settings.old//res/values/strings.xml	2010-12-17 19:47:34.559382227 +0200
++++ Settings/res/values/strings.xml	2010-12-17 19:46:45.327862088 +0200
+@@ -1810,4 +1810,7 @@
+     <string name="ringModeVibrateAsOnDescription">Show Sound as on when vibrate only</string>
+     <string name="monitorDataRoamingDescription">Data status red if data roaming is enabled</string>
+     <string name="possibleButtons">Possible Buttons</string>
++    <string name="record_settings">Call Recording</string>
++    <string name="record_settings_title">Call Recording</string>
++    <string name="record_settings_summary">Call Recording</string>
+ </resources>
+\ No newline at end of file
+diff -Nur Settings.old//res/xml/settings.xml Settings/res/xml/settings.xml
+--- Settings.old//res/xml/settings.xml	2010-12-17 19:47:34.029366276 +0200
++++ Settings/res/xml/settings.xml	2010-12-17 19:46:44.927849411 +0200
+@@ -50,6 +50,9 @@
+     <com.android.settings.IconPreferenceScreen android:title="@string/tts_settings" android:key="tts_settings" settings:icon="@drawable/ic_settings_speech">
+         <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.TextToSpeechSettings" />
+     </com.android.settings.IconPreferenceScreen>
++    <com.android.settings.IconPreferenceScreen android:title="@string/record_settings" android:key="record_settings" settings:icon="@drawable/ic_settings_record">
++        <intent android:targetPackage="com.voix" android:action="android.intent.action.MAIN" android:targetClass="com.voix.Prefs" />
++    </com.android.settings.IconPreferenceScreen>
+     <com.android.settings.IconPreferenceScreen android:title="@string/about_settings" android:key="about_settings" settings:icon="@drawable/ic_settings_about">
+         <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.DeviceInfoSettings" />
+     </com.android.settings.IconPreferenceScreen>
+diff -Nur Settings.old//smali/com/android/settings/framework/activity/HtcEntryProxy.smali Settings/smali/com/android/settings/framework/activity/HtcEntryProxy.smali
+--- Settings.old//smali/com/android/settings/framework/activity/HtcEntryProxy.smali	2010-12-17 19:47:29.979244078 +0200
++++ Settings/smali/com/android/settings/framework/activity/HtcEntryProxy.smali	2010-12-17 19:46:40.437706722 +0200
+@@ -53,7 +53,7 @@
+ 
+     const/4 v1, 0x0
+ 
+-    const/16 v3, 0x14
++    const/16 v3, 0x15
+ 
+     new-array v3, v3, [Lcom/android/settings/framework/activity/HtcEntryProxy;
+ 
+@@ -795,6 +795,44 @@
+ 
+     invoke-direct {v0}, Lcom/android/settings/framework/activity/HtcEntryProxy;-><init>()V
+ 
++    const-string v3, "record_settings"
++
++    iput-object v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->key:Ljava/lang/String;
++
++    const v3, 0x7f0200af
++
++    iput v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->iconResource:I
++
++    const v3, 0x7f0a0713
++
++    iput v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->titleResource:I
++
++    const v3, 0x7f0a0714
++
++    iput v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->summaryResource:I
++
++    const-string v3, "android.intent.action.MAIN"
++
++    iput-object v4, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->action:Ljava/lang/String;
++
++    const-string v3, "com.voix"
++
++    iput-object v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->targetPackage:Ljava/lang/String;
++
++    const-string v3, "com.voix.Prefs"
++
++    iput-object v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->targetClass:Ljava/lang/String;
++
++    sget-object v3, Lcom/android/settings/framework/activity/HtcEntryProxy;->mEntries:[Lcom/android/settings/framework/activity/HtcEntryProxy;
++
++    add-int/lit8 v1, v2, 0x1
++
++    aput-object v0, v3, v2
++
++    new-instance v0, Lcom/android/settings/framework/activity/HtcEntryProxy;
++
++    invoke-direct {v0}, Lcom/android/settings/framework/activity/HtcEntryProxy;-><init>()V
++
+     const-string v3, "about_settings"
+ 
+     iput-object v3, v0, Lcom/android/settings/framework/activity/HtcEntryProxy;->key:Ljava/lang/String;
+@@ -825,9 +863,9 @@
+ 
+     sget-object v3, Lcom/android/settings/framework/activity/HtcEntryProxy;->mEntries:[Lcom/android/settings/framework/activity/HtcEntryProxy;
+ 
+-    add-int/lit8 v1, v2, 0x1
++    add-int/lit8 v2, v1, 0x1
+ 
+-    aput-object v0, v3, v2
++    aput-object v0, v3, v1
+ 
+     sput-object v0, Lcom/android/settings/framework/activity/HtcEntryProxy$HtcEntryReference;->aboutSettings:Lcom/android/settings/framework/activity/HtcEntryProxy;
+ 
+diff -Nur Settings.old//smali/com/android/settings/R$drawable.smali Settings/smali/com/android/settings/R$drawable.smali
+--- Settings.old//smali/com/android/settings/R$drawable.smali	2010-12-17 19:47:29.169219575 +0200
++++ Settings/smali/com/android/settings/R$drawable.smali	2010-12-17 19:46:39.607680273 +0200
+@@ -143,6 +143,8 @@
+ 
+ .field public static final ic_settings_privacy:I = 0x7f02003e
+ 
++.field public static final ic_settings_record:I = 0x7f0200af
++
+ .field public static final ic_settings_search:I = 0x7f02003f
+ 
+ .field public static final ic_settings_security:I = 0x7f020040
+diff -Nur Settings.old//smali/com/android/settings/R$string.smali Settings/smali/com/android/settings/R$string.smali
+--- Settings.old//smali/com/android/settings/R$string.smali	2010-12-17 19:47:29.149218969 +0200
++++ Settings/smali/com/android/settings/R$string.smali	2010-12-17 19:46:39.577679316 +0200
+@@ -2305,6 +2305,12 @@
+ 
+ .field public static final recompute_size:I = 0x7f0a0581
+ 
++.field public static final record_settings:I = 0x7f0a0712
++
++.field public static final record_settings_summary:I = 0x7f0a0714
++
++.field public static final record_settings_title:I = 0x7f0a0713
++
+ .field public static final reminider_title:I = 0x7f0a0158
+ 
+ .field public static final restore_default_apn:I = 0x7f0a0505

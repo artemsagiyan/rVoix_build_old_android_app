@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:id="@+id/LayoutRoot" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	android:orientation="vertical"
+	android:gravity="center_vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <TextView android:text="Answering the call " android:id="@+id/TextView" 
+  	android:layout_height="wrap_content" android:textSize="24dp" android:textColor="#00f000" 
+  	android:layout_width="fill_parent" android:gravity="center_horizontal" android:paddingBottom="8dip" >
+  </TextView>
+
+  <LinearLayout android:id="@+id/LinearLayout02" 
+  	android:layout_width="fill_parent" 
+  	android:orientation="vertical"
+  	android:gravity="center_vertical"
+  	android:layout_height="wrap_content">
+  	<Button android:layout_width="fill_parent" 
+  		android:layout_height="wrap_content"
+  		android:layout_marginTop="80dp" 
+  		android:layout_weight="1" android:id="@+id/ButtonYes" android:text="@string/SCancel">
+  	</Button>
+  </LinearLayout>
+
+</LinearLayout>

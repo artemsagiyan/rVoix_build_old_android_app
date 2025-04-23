@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/53/branches/snapdragon/jni
+END
+voix_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/51/branches/snapdragon/jni/voix_main.c
+END
+voix.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/32/branches/snapdragon/jni/voix.h
+END
+voix_enc.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/32/branches/snapdragon/jni/voix_enc.c
+END
+build
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/31/branches/snapdragon/jni/build
+END
+amr.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/32/branches/snapdragon/jni/amr.c
+END
+voix_msm7k.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/32/branches/snapdragon/jni/voix_msm7k.c
+END
+voix_msm8k.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/53/branches/snapdragon/jni/voix_msm8k.c
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/32/branches/snapdragon/jni/Android.mk
+END

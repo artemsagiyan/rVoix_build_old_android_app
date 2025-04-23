@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.voix"
+      android:versionName="1.0.7" android:versionCode="3">
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+
+        <activity android:name=".Secretaire"
+                	android:screenOrientation="portrait"
+                	android:label="@string/app_name">
+        	<intent-filter>
+            	    <action android:name="android.intent.action.MAIN" />
+                	<category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <service android:name=".RVoixSrv" android:process=":remote" android:exported="true" />
+        
+        <service android:name=".TattooHack" />
+        
+        <activity android:name=".Prefs"
+					android:launchMode="singleTop"
+                  	android:configChanges="keyboardHidden|orientation"
+                  	android:label="@string/Settings">
+        </activity>
+
+<!--  android:theme="@android:style/Theme.Light"  -->
+        <activity android:name=".Browser"
+                	android:launchMode="standard"
+                	android:screenOrientation="portrait"
+                	android:label="@string/SRecordings">
+        </activity>
+
+        <activity android:name=".ContSel"
+					android:launchMode="singleTop"
+					android:screenOrientation="portrait"
+                  	android:label="@string/SFCMT">
+        </activity>
+
+        <activity android:name=".RecSndFile"
+					android:theme="@android:style/Theme.Dialog"
+					android:launchMode="singleTop"
+					android:screenOrientation="portrait"
+                  	android:label="@string/SAANew">
+        </activity>
+
+        <activity android:name=".BWList"
+					android:launchMode="singleTop"
+					android:screenOrientation="portrait"
+                  	android:label="@string/SBL">
+        </activity>
+
+        <activity android:name=".BWFilesBrowser"
+					android:launchMode="singleTop"
+					android:screenOrientation="portrait"
+                  	android:label="@string/SBL">
+        </activity>
+
+<!-- android:theme="@android:style/Theme.Dialog"  -->
+
+        <activity android:name=".AskOnCall"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                	android:launchMode="singleTop"
+                	android:screenOrientation="portrait"
+                	android:label="@string/app_name">
+<!-- 
+		 	<intent-filter android:priority="0">
+                <action android:name="android.intent.action.CALL_PRIVILEGED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tel" />
+            </intent-filter>
+-->            
+		</activity>
+
+        <activity android:name=".AskDelete"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                	android:launchMode="singleTop"
+                	android:screenOrientation="portrait"
+                	android:label="@string/app_name">
+		</activity>
+
+        <activity android:name=".AskAACancel"
+					android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                	android:launchMode="singleTop"
+                	android:screenOrientation="portrait"
+                	android:label="@string/app_name">
+		</activity>
+		
+		<receiver android:name=".BootRec">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            	<category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        
+    </application>
+    
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.MODIFY_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
+	<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+	<uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+	<uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
+	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"></uses-permission>
+	<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+	<!--
+	<uses-permission android:name="android.permission.CALL_PRIVILEGED"></uses-permission>
+	-->
+
+	<uses-sdk android:minSdkVersion="4"></uses-sdk>
+
+</manifest> 

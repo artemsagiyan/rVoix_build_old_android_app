@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/14/trunk/res/menu
+END
+mmenu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/res/menu/mmenu.xml
+END
+mmenu1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/2/trunk/res/menu/mmenu1.xml
+END
+cmenu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/res/menu/cmenu.xml
+END
+bwmenu.xml
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/14/trunk/res/menu/bwmenu.xml
+END

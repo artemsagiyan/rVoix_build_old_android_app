@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="@string/SDelete" android:id="@+id/DelSelected"></item>
+	<item android:title="@string/SChtype" android:id="@+id/ChangeType"></item>
+	<item android:title="@string/SAddManual" android:id="@+id/AddManually"></item>
+	<item android:title="@string/SAddContacts" android:id="@+id/AddFromContacts"></item>
+	<item android:title="@string/SLoadList" android:id="@+id/LoadList"></item>
+	<item android:title="@string/SSaveList" android:id="@+id/SaveList"></item>
+</menu>

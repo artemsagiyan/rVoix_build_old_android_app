@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+<string name="app_name">rVoix</string>
+
+<string name="SBuild">rVoix: Version 1.06 Build 208</string>
+
+<string name="RRMode">Start service</string>
+<string name="Settings">Settings</string>
+<string name="Exit">Stop service (if running) and exit</string>
+
+<string name="Nodev">Device does not exist, or its permissions cannot be changed.</string>
+<string name="SStarted">rVoix service started</string>
+<string name="SReStarted">rVoix service restarted</string>
+
+<string name="SGenPrefs">General settings</string>
+<string name="FGServ">Foreground service</string>
+<string name="DisNotify">Disable notifications</string>
+
+<string name="SOutCalls">Outgoing calls</string>
+<string name="OutCalls">Action for outgoing calls</string>
+
+<string name="SInCalls">Incoming calls</string>
+
+<string name="SUnknownNum">Calls without number</string>
+<string name="UnknownNum">Action for calls without numbers</string>
+
+<string name="SContNum">Numbers in contacts</string>
+<string name="ContNum">Action for numbers in contacts</string>
+
+<string name="SNonContNum">Numbers not in contacts</string>
+<string name="NonContNum">Action for numbers not in contacts</string>
+
+<string name="SDefaultOutAction">Default action</string>
+
+<string-array name="OutCallActions">
+<item>Do not record</item>
+<item>Record contacts</item>
+<item>Record non-contacts</item>
+<item>Record all</item>
+<item>Ask on each call</item>
+<item>In-call manual control</item>
+</string-array>
+
+<string-array name="OutCallValues">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+</string-array>
+
+<string-array name="InCallActions">
+<item>None</item>
+<item>Record the call</item>
+<item>Hang up</item>
+<item>Mute the ring</item>
+<item>Ask on each call</item>
+<item>In-call manual control</item>
+</string-array>
+
+<string-array name="InCallValues">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+</string-array>
+
+<string name="SMode">Mode</string>
+<string name="SRecFmt">Call recording format</string>
+<string-array name="RecFormats">
+<item>WAV</item>
+<item>MP3</item>
+</string-array>
+
+<string-array name="CallRecValues">
+<item>0</item>
+<item>1</item>
+</string-array>
+
+<string name="AskRecCall">Record </string>
+
+<string name="SYes">Yes</string>
+<string name="SNo">No</string>
+<string name="SHup">Hang up</string>
+
+<string name="SHupp">Hang up</string>
+<string name="SMute">Mute the ring</string>
+
+<string name="SStart">Start recording</string>
+<string name="SStop">Stop recording</string>
+
+<string name="SEndCall">End call</string>
+
+<string name="SBootup">Start after each reboot</string>
+
+<string name="SAbout">About</string>
+
+<string name="SSound">Sound boost</string>
+<string name="SBoostUp">Uplink boost</string>
+<string name="SBoostDn">Downlink boost</string>
+
+<string-array name="BoostArray">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+</string-array>
+
+<string name="SEmptyList">== empty ==</string>
+<string name="SRecordings">Recordings</string>
+
+<string name="SAction">Action</string>
+<string name="SMarkFav">Mark as important</string>
+<string name="SDelete">Delete</string>
+<string name="SCancel">Cancel</string>
+<string name="SFilter">Filter by this name/number</string>
+<string name="SCall">Call</string>
+<string name="SAddToBlist">Add to ...</string>
+<string name="SUnMarkFav">Mark as unimportant</string>
+
+<string name="SBk">Automatic cleanup</string>
+<string name="SBkMaxFiles">Max. number of files</string>
+<string name="SBkMaxSize">Max. total size of files</string>
+<string name="SBkMaxTime">Max. age of recordings</string>
+
+<string name="SBkMaxFilesMsg">Enter a number (0 - no limit)</string>
+<string name="SBkMaxSizeMsg">Enter a value in megabytes (0 - no limit)</string>
+<string name="SBkMaxTimeMsg">Enter a value in days (0 - no limit)</string>
+<string name="SBkMinTimeMsg">Enter a value in seconds</string>
+
+<string name="SCurVal">Current setting:</string>
+
+<string name="SMIncOnly">Incoming only</string>
+<string name="SMOutOnly">Outgoing only</string>
+<string name="SMRevTime">Time reverse</string>
+<string name="SMFilter">Search</string>
+
+<string name="SShortOutCalls">Short outgoing calls</string>
+<string name="SShortInCalls">Short incoming calls</string>
+<string name="SBkMinTime">Min. call time</string>
+<string name="SMConfirm">Confirm delete</string>
+<string name="SCallTooShort">Call too short. Delete?</string>
+
+<string name="SBL">Blacklists and exceptions</string>
+<string name="SBLMode">B/W lists mode</string>
+
+<string-array name="BlistArray">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+</string-array>
+
+<string-array name="BlistActions">
+<item>Off</item>
+<item>Blacklist</item>
+<item>WL: hangup others</item>
+<item>WL: mute others</item>
+<item>WL: autoanswer others</item>
+<item>WL: AA+record others</item>
+</string-array>
+
+<string name="SSelAll">Select all</string>
+<string name="SSelNone">Unselect all</string>
+<string name="SDelAll">Delete all</string>
+<string name="SNotInContacts">not in contacts</string>
+<string name="SRemoveSelected">Remove selected</string>
+<string name="SAddManual">Add manually</string>
+<string name="SAddContacts">Add from contacts</string>
+<string name="SSaveList">Save as...</string>
+<string name="SLoadList">Load list</string>
+<string name="SFCMT">Add from contacts</string>
+<string name="SOK">OK</string>
+
+<string name="SListActive">Phones present</string>
+<string name="SListInactive">List is empty</string>
+
+<string name="SBLWlist">White list</string>
+<string name="SBLBlist">Black list</string>
+<string name="SBExceptions">Exceptions</string>
+<string name="SBIExceptions">Exceptions (in)</string>
+<string name="SBOExceptions">Exceptions (out)</string>
+
+<string name="SBLRover">Always record</string>
+<string name="SBLAover">Always ask</string>
+<string name="SBLNover">Never record</string>
+<string name="SBLIover">Always in-call</string>
+
+<string name="SOverType">Select action</string>
+
+<string-array name="ListNames">
+<item>@string/SBLWlist</item>
+<item>@string/SBLBlist</item>
+<item>@string/SBExceptions</item>
+<item>@string/SBExceptions</item>
+<item>@string/SBExceptions</item>
+</string-array>
+
+<string-array name="OverTypes">
+<item>@string/SBLRover</item>
+<item>@string/SBLAover</item>
+<item>@string/SBLNover</item>
+<item>@string/SBLIover</item>
+</string-array>
+
+<string name="SChtype">Change type</string>
+<string name="SSelectType">Select type</string>
+<string name="SEdit">Edit number</string>
+<string name="SEdit1">Edit</string>
+<string name="SSelList">Select list</string>
+
+<string name="TAlreadyPresent">Number already present in the list.</string>
+<string name="TNumAdded">Number added.</string>
+<string name="TAlreadyPresents">were already in the list.</string>
+<string name="TNumsAdded">Numbers added:</string>
+<string name="TNothingAdded">Nothing added.</string>
+<string name="TNothingSelected">Nothing selected.</string>
+
+<string name="SDebuggingGroup">Debugging options</string>
+<string name="SLogging">Enable detailed logs</string>
+<string name="SRmLog">Clear log</string>
+<string name="STattooHack">Tattoo hack</string>
+
+<string name="SNoLogFile">Log is empty</string>
+<string name="SCantDeleteLogFile">Cannot clear log</string>
+<string name="SLogCleared">Log cleared</string>
+
+<string name="SViewLog">View log</string>
+
+<string name="SAA">Autoanswer</string>
+<string name="SAAR">Autoanswer + record</string>
+<string name="SAAF">Autoanswer settings</string>
+
+<string name="SABlist">Numbers in blacklist</string>
+<string name="SAWlist">Numbers not in whitelist</string>
+<string name="SAElist">Numbers in incoming ex/list</string>
+
+<string name="SAANew">Record new file</string>
+<string name="SAANoFile">File not set</string>
+<string name="SAASndFile">Select sound file</string>
+
+<string name="SFDefaultAA">Autoanswer file</string>
+<string name="SFDefaultAR">Autoanswer+record file</string>
+
+<string name="SCantCreateSndDir">Cannot create "/sdcard/voix/sounds"</string>
+<string name="StartRecord">Start</string>
+<string name="StopRecord">Stop</string>
+<string name="SaveRecord">Save</string>
+<string name="SQuit">Quit</string>
+<string name="RecError">Recorder error</string>
+<string name="RecErrorInit">Recorder initialisation error</string>
+<string name="RecErrorSetup">Recorder setup error</string>
+<string name="RecErrorWrite">Write error</string>
+<string name="SNoFileName">Enter file name to save</string>
+<string name="SFileNotSaved">Previous recording not saved, proceed anyway?</string>
+<string name="SCantSave">Error saving a file</string>
+<string name="SLastNotSaved">Last file was not saved!</string>
+
+<string name="SChFile">Change file</string>
+<string name="SChFileAndType">Change file and type</string>
+<string name="SExFileList">Individual numbers</string>
+<string name="SExList">List of exceptions</string>
+
+<string-array name="AAModes">
+<item>Off</item>
+<item>Autoanswer</item>
+<item>Autoanswer+record</item>
+</string-array>
+
+<string-array name="AAModeValues">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+</string-array>
+
+<string name="AADelay">Autoanswer delay</string>
+<string name="AAMode">Autoanswer mode</string>
+<string name="AATimeMsg">Enter delay in seconds</string>
+<string name="LoudAARec">Speakerphone on autoanswer</string>
+<string name="NowAnswering">Answering</string>
+<string name="NowRecording">Recording</string>
+
+</resources>
+

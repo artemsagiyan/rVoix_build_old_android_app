@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:key="main_screen">
+
+ <PreferenceCategory
+   	android:title="@string/SGenPrefs">
+  <CheckBoxPreference
+	android:key="bootup"
+    android:title="@string/SBootup" 
+    android:defaultValue="false"/>
+  <CheckBoxPreference
+	android:key="disable_notify"
+    android:title="@string/DisNotify" 
+    android:defaultValue="false"/>
+  <ListPreference
+	android:key="format"
+	android:defaultValue="0"
+	android:title="@string/SRecFmt"
+	android:entries="@array/RecFormats"
+    android:entryValues="@array/CallRecValues"
+    android:dialogTitle="@string/SRecFmt" />
+ </PreferenceCategory>
+
+ <PreferenceCategory
+   	android:title="@string/SOutCalls">
+	  <ListPreference
+		android:key="outgoing_calls"
+		android:defaultValue="3"
+		android:title="@string/SDefaultOutAction"
+		android:entries="@array/OutCallActions"
+	    android:entryValues="@array/OutCallValues"
+	    android:dialogTitle="@string/OutCalls" />
+  	<Preference
+		android:key="edit_oelist"
+		android:title="@string/SBExceptions"/>
+ </PreferenceCategory> 
+ 
+ <PreferenceCategory
+    android:title="@string/SInCalls">
+  	<ListPreference
+		android:key="numbers_in_contacts"
+		android:defaultValue="1"
+		android:title="@string/SContNum"
+		android:entries="@array/InCallActions"
+	    android:entryValues="@array/InCallValues"
+	    android:dialogTitle="@string/ContNum" />
+  	<ListPreference
+		android:key="numbers_not_in_contacts"
+		android:defaultValue="1"
+		android:title="@string/SNonContNum"
+		android:entries="@array/InCallActions"
+	    android:entryValues="@array/InCallValues"
+	    android:dialogTitle="@string/NonContNum" />
+	<ListPreference
+		android:key="unknown_numbers"
+		android:defaultValue="1"
+		android:title="@string/SUnknownNum"
+		android:entries="@array/InCallActions"
+	    android:entryValues="@array/InCallValues"
+	    android:dialogTitle="@string/UnknownNum" />
+	
+	<PreferenceScreen
+    	android:key="overrides_screen"
+    	android:title="@string/SBL">
+	  	<ListPreference
+			android:key="bmode"
+			android:defaultValue="0"
+			android:title="@string/SBLMode"
+			android:entries="@array/BlistActions"
+	    	android:entryValues="@array/BlistArray"
+	    	android:dialogTitle="@string/SBLMode" />
+  		<Preference
+			android:key="edit_wlist"
+			android:title="@string/SBLWlist"/>
+  		<Preference
+			android:key="edit_blist"
+			android:title="@string/SBLBlist"/>
+  		<Preference
+			android:key="edit_ielist"
+			android:title="@string/SBExceptions"/>
+  	</PreferenceScreen>
+  
+  	<PreferenceScreen
+    	android:key="aas_screen"
+    	android:title="@string/SAAF">
+  	  <Preference
+			android:key="new_rec"
+			android:title="@string/SAANew"/>
+	  <CheckBoxPreference
+		android:key="loud_aa_rec"
+	    android:title="@string/LoudAARec" 
+	    android:defaultValue="false"/>
+	  <PreferenceCategory
+    	android:title="@string/SABlist">
+  		<Preference
+			android:key="ba_file_a"
+			android:title="@string/SFDefaultAA"/>
+  	  </PreferenceCategory>
+
+	  <PreferenceCategory
+    	android:title="@string/SAWlist">
+  		<Preference
+			android:key="wa_file_a"
+			android:title="@string/SFDefaultAA"/>
+  		<Preference
+			android:key="wa_file_r"
+			android:title="@string/SFDefaultAR"/>
+  	  </PreferenceCategory>
+
+	  <PreferenceCategory
+    	android:title="@string/SContNum">
+	  	<ListPreference
+		android:key="cn_aa_mode"
+		android:defaultValue="0"
+		android:title="@string/AAMode"
+		android:entries="@array/AAModes"
+	    android:entryValues="@array/AAModeValues"
+	    android:dialogTitle="@string/ContNum" />
+  		<EditTextPreference
+		android:key="cn_aa_delay"
+		android:defaultValue="0"
+		android:dialogMessage="@string/AATimeMsg"
+		android:numeric="integer" 
+		android:maxLength="3"
+		android:title="@string/AADelay" />
+  		<Preference
+			android:key="cn_file_a"
+			android:title="@string/SFDefaultAA"/>
+  		<Preference
+			android:key="cn_file_r"
+			android:title="@string/SFDefaultAR"/>
+  	  </PreferenceCategory>
+
+	  <PreferenceCategory
+    	android:title="@string/SNonContNum">
+  		<ListPreference
+		android:key="nc_aa_mode"
+		android:defaultValue="0"
+		android:title="@string/AAMode"
+		android:entries="@array/AAModes"
+	    android:entryValues="@array/AAModeValues"
+	    android:dialogTitle="@string/ContNum" />
+  		<EditTextPreference
+		android:key="nc_aa_delay"
+		android:defaultValue="0"
+		android:dialogMessage="@string/AATimeMsg"
+		android:numeric="integer" 
+		android:maxLength="3"
+		android:title="@string/AADelay" />
+  		<Preference
+			android:key="nc_file_a"
+			android:title="@string/SFDefaultAA"/>
+  		<Preference
+			android:key="nc_file_r"
+			android:title="@string/SFDefaultAR"/>
+  	  </PreferenceCategory>
+
+	  <PreferenceCategory
+    	android:title="@string/SUnknownNum">
+		<ListPreference
+		android:key="un_aa_mode"
+		android:defaultValue="0"
+		android:title="@string/AAMode"
+		android:entries="@array/AAModes"
+	    android:entryValues="@array/AAModeValues"
+	    android:dialogTitle="@string/ContNum" />
+  		<EditTextPreference
+		android:key="un_aa_delay"
+		android:defaultValue="0"
+		android:dialogMessage="@string/AATimeMsg"
+		android:numeric="integer" 
+		android:maxLength="3"
+		android:title="@string/AADelay" />
+  		<Preference
+			android:key="un_file_a"
+			android:title="@string/SFDefaultAA"/>
+  		<Preference
+			android:key="un_file_r"
+			android:title="@string/SFDefaultAR"/>
+  	  </PreferenceCategory>
+  	  <PreferenceCategory
+    	android:title="@string/SExFileList">
+		<Preference
+			android:key="edit_aelist"
+			android:title="@string/SBExceptions"/>
+  	    <EditTextPreference
+		android:key="ex_aa_delay"
+		android:defaultValue="0"
+		android:dialogMessage="@string/AATimeMsg"
+		android:numeric="integer" 
+		android:maxLength="3"
+		android:title="@string/AADelay" />
+  	  </PreferenceCategory>	
+  	
+  	</PreferenceScreen>
+
+  </PreferenceCategory>
+
+ <PreferenceCategory
+    android:title="@string/SSound">
+  	<ListPreference
+		android:key="boost_up"
+		android:defaultValue="0"
+		android:title="@string/SBoostUp"
+		android:entries="@array/BoostArray"
+	    android:entryValues="@array/BoostArray"
+	    android:dialogTitle="@string/SBoostUp" />
+  	<ListPreference
+		android:key="boost_dn"
+		android:defaultValue="0"
+		android:title="@string/SBoostDn"
+		android:entries="@array/BoostArray"
+	    android:entryValues="@array/BoostArray"
+	    android:dialogTitle="@string/SBoostDn" />
+  </PreferenceCategory>
+
+  <PreferenceCategory
+    android:title="@string/SBk">
+  	<EditTextPreference
+		android:key="max_files"
+		android:defaultValue="0"
+		android:dialogMessage="@string/SBkMaxFilesMsg"
+		android:numeric="integer" 
+		android:maxLength="6"
+		android:title="@string/SBkMaxFiles" />
+  	<EditTextPreference
+		android:key="max_storage"
+		android:defaultValue="0"
+		android:dialogMessage="@string/SBkMaxSizeMsg"
+		android:numeric="integer" 
+		android:maxLength="6"
+		android:title="@string/SBkMaxSize" />
+  	<EditTextPreference
+		android:key="max_time"
+		android:defaultValue="0"
+		android:dialogMessage="@string/SBkMaxTimeMsg"
+		android:numeric="integer" 
+		android:maxLength="6"
+		android:title="@string/SBkMaxTime" />
+  </PreferenceCategory>
+
+  <PreferenceCategory
+    android:title="@string/SShortOutCalls">
+  	<EditTextPreference
+		android:key="min_out_time"
+		android:defaultValue="0"
+		android:dialogMessage="@string/SBkMinTimeMsg"
+		android:numeric="integer" 
+		android:maxLength="4"
+		android:title="@string/SBkMinTime" />
+  	<CheckBoxPreference
+		android:key="min_out_confirm"
+	    android:title="@string/SMConfirm" 
+	    android:defaultValue="true"/>
+  </PreferenceCategory>
+
+  <PreferenceCategory
+    android:title="@string/SShortInCalls">
+  	<EditTextPreference
+		android:key="min_in_time"
+		android:defaultValue="0"
+		android:dialogMessage="@string/SBkMinTimeMsg"
+		android:numeric="integer" 
+		android:maxLength="4"
+		android:title="@string/SBkMinTime" />
+  	<CheckBoxPreference
+		android:key="min_in_confirm"
+	    android:title="@string/SMConfirm" 
+	    android:defaultValue="true"/>
+  </PreferenceCategory>
+
+  <PreferenceCategory
+    android:title="@string/SDebuggingGroup">
+	<CheckBoxPreference
+		android:key="foreground"
+    	android:title="@string/FGServ" 
+    	android:defaultValue="true"/>
+ 	<CheckBoxPreference
+		android:key="logging"
+	    android:title="@string/SLogging" 
+	    android:defaultValue="false"/>
+  	<Preference
+		android:key="delete_log"
+		android:title="@string/SRmLog"/>
+    <CheckBoxPreference
+		android:key="is_tattoo"
+    	android:title="@string/STattooHack" 
+    	android:defaultValue="false"/>
+  </PreferenceCategory>
+  
+</PreferenceScreen>

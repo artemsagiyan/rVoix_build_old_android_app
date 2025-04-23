@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:id="@+id/LayoutRoot" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" 
+	android:orientation="vertical"
+	android:gravity="center_vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <TextView android:text="@string/SCallTooShort" android:id="@+id/TextView" 
+  android:layout_width="fill_parent" android:gravity="center_horizontal" android:paddingBottom="16dip" 
+  android:layout_height="wrap_content" android:textSize="24dp" android:textColor="#00f000"></TextView>
+
+  <LinearLayout android:id="@+id/LinearLayout02" 
+  	android:layout_width="fill_parent" 
+  	android:orientation="horizontal"
+  	android:gravity="center_vertical"
+  	android:layout_height="wrap_content">
+  	<Button android:text="@string/SYes" android:layout_width="0dp" 
+  		android:layout_height="wrap_content"
+  		android:layout_weight="1" android:minLines="2" android:id="@+id/ButtonYes">
+  	</Button>
+	<Button android:text="@string/SNo" android:layout_width="0dp" 
+		android:layout_height="wrap_content" android:layout_weight="1" android:minLines="2" android:id="@+id/ButtonNo">
+		>
+	</Button>
+  </LinearLayout>
+
+</LinearLayout>

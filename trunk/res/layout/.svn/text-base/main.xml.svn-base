@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical"
+    android:background="#ff999999"
+    >
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+<Button android:id="@+id/ButtonRR" 
+	android:background="#ff000000"  android:gravity="center_vertical|left"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/RRMode" 
+	android:textColor="#ffffffff" android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" 
+	android:textSize="28dp" android:typeface="normal"></Button>
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+<Button android:id="@+id/ButtonSetup" 
+	android:background="#ff000000" android:gravity="center_vertical|left"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/Settings"
+	android:textColor="#ffffffff" android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" 
+	android:textSize="28dp"></Button>
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+<Button android:id="@+id/ButtonAbout" 
+	android:background="#ff000000" android:gravity="center_vertical|left"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SAbout"
+	android:textColor="#ffffffff" android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" 
+	android:textSize="28dp"></Button>
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+<Button android:id="@+id/ButtonRec" 
+	android:background="#ff000000" android:gravity="center_vertical|left"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SRecordings"
+	android:textColor="#ffffffff" android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" 
+	android:textSize="28dp"></Button>
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+<Button android:id="@+id/ButtonVLog" 
+	android:background="#ff000000" android:gravity="center_vertical|left"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SViewLog"
+	android:textColor="#ffffffff" android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" 
+	android:textSize="28dp"></Button>
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+<Button android:id="@+id/ButtonQuit" 
+	android:background="#ff000000" android:gravity="center_vertical|left"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/Exit"
+	android:textColor="#ffffffff" android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" 
+	android:textSize="28dp"></Button>
+<View android:layout_height="2dip" android:layout_width="fill_parent" android:background="#FF909090" />
+
+</LinearLayout>

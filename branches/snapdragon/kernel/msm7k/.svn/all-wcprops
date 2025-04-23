@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/37/branches/snapdragon/kernel/msm7k
+END
+smd_rpcrouter.patch
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/37/branches/snapdragon/kernel/msm7k/smd_rpcrouter.patch
+END
+vocpcm.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/37/branches/snapdragon/kernel/msm7k/vocpcm.c
+END

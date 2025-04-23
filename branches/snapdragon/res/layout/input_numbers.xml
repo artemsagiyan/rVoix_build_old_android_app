@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:id="@+id/LayoutRoot" 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	android:orientation="vertical"
+	android:gravity="center_vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--  	android:inputType="phone"
+  	android:phoneNumber="true"
+  	android:inputType="phone"
+  	android:digits="+0123456789\\n"  --> 
+
+ 
+  <EditText android:text="" android:id="@+id/EditText" 
+	android:layout_width="fill_parent" 
+  	android:singleLine="false" 
+  	android:digits="+0123456789\n"
+  	android:inputType="number"
+  	android:textSize="20sp"   
+  	android:minLines="4"
+  	android:gravity="top"  
+  	android:layout_height="wrap_content">
+  </EditText>
+
+  <LinearLayout android:id="@+id/LinearLayout02" 
+  	android:layout_width="fill_parent" 
+  	android:orientation="horizontal"
+  	android:gravity="center_vertical"
+  	android:layout_height="wrap_content"
+  	android:layout_below="@id/EditText">
+
+	<Button android:text="@string/SOK" android:layout_width="0dp" 
+  		android:layout_height="wrap_content"
+  		android:layout_weight="1" android:minLines="2" 
+  		android:id="@+id/ButtonYes">
+  	</Button>
+  </LinearLayout>
+
+</RelativeLayout>

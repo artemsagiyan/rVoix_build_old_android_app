@@ -1,0 +1,37 @@
+diff files are just informational. they should give you an idea what is added / changed
+
+IMPORTANT CHANGES EXPLAINED:
+
+- Phone.apk:
+
+  AndroidManifest.xml (changed)
+    added an extra broadcast receiver (ref: Rec.smali)
+    it is needed because you can't update UI from rvoix callback
+    functions (and other threads as well)
+
+  smali/com/android/phone/Rec.smali (new, broadcast receiver)
+    receives com.voixtest.RECORDING and calls 
+    com/android/phone/InCallScreen;->updateRecordButton*()V
+  
+  smali/com/voix/* (new)
+    voix stuff :)))
+
+  smali/com/android/phone/InCallScreen.smali
+    voix stuff init (constructor, onCreate, reEstablishConnection, 
+    startServiceIfNotRuning, switchRecordOnOff, updateRecordButton* (called by Rec.smali)
+
+  smali/com/android/phone/InCallScreen$25.smali & 
+    smali/com/android/phone/InCallScreen$25.smali (new, rvoix init, callback functions & so)
+    
+  smali/com/android/phone/HtcIncallControlPanel.smali
+    adds an extra button to layout, sets onclick listenners & ...
+    updateRecordButton*()V & related..
+
+- Settings.apk:
+
+  smali/com/android/settings/framework/activity/HtcEntryProxy.smali (changed)
+    adds an entry to settings acrivity to invoke com.voix/.Prefs
+
+- /system/lib/ (phone)
+  you should add liblame.so & libvoix.so by yourself
+

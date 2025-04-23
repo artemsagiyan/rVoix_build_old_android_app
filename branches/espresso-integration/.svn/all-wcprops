@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/11/branches/espresso-integration
+END
+default.properties
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/5/branches/espresso-integration/default.properties
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/6/branches/espresso-integration/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/5/branches/espresso-integration/.project
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/6/branches/espresso-integration/AndroidManifest.xml
+END
+build.pl
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/5/branches/espresso-integration/build.pl
+END

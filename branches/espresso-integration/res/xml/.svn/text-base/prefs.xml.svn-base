@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	android:key="main_screen">
+
+	<CheckBoxPreference android:key="foreground"
+		android:title="@string/FGServ" android:defaultValue="true" />
+
+
+	<ListPreference android:key="format"
+		android:defaultValue="0" android:title="@string/SRecFmt"
+		android:entries="@array/RecFormats" android:entryValues="@array/CallRecValues"
+		android:dialogTitle="@string/SRecFmt" />
+
+
+
+
+
+	<PreferenceCategory android:title="@string/SSound">
+		<ListPreference android:key="boost_up"
+			android:defaultValue="2" android:title="@string/SBoostUp"
+			android:entries="@array/BoostArray" android:entryValues="@array/BoostArray"
+			android:dialogTitle="@string/SBoostUp" />
+		<ListPreference android:key="boost_dn"
+			android:defaultValue="2" android:title="@string/SBoostDn"
+			android:entries="@array/BoostArray" android:entryValues="@array/BoostArray"
+			android:dialogTitle="@string/SBoostDn" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/SBk">
+		<EditTextPreference android:key="max_files"
+			android:defaultValue="0" android:dialogMessage="@string/SBkMaxFilesMsg"
+			android:numeric="integer" android:maxLength="6" android:title="@string/SBkMaxFiles" />
+		<EditTextPreference android:key="max_storage"
+			android:defaultValue="0" android:dialogMessage="@string/SBkMaxSizeMsg"
+			android:numeric="integer" android:maxLength="6" android:title="@string/SBkMaxSize" />
+		<EditTextPreference android:key="max_time"
+			android:defaultValue="0" android:dialogMessage="@string/SBkMaxTimeMsg"
+			android:numeric="integer" android:maxLength="6" android:title="@string/SBkMaxTime" />
+	</PreferenceCategory>
+
+
+
+
+</PreferenceScreen>

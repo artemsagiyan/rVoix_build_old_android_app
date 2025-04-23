@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+<string name="app_name">rVoix</string>
+
+<string name="SBuild">rVoix: Версия 1.06 Сборка 207</string>
+
+<string name="RRMode">Запустить сервис</string>
+<string name="Settings">Настройки</string>
+<string name="Exit">Остановить сервис и выйти</string>
+
+<string name="Nodev">Устройство отсутствует, либо нельзя изменить его права доступа.</string>
+<string name="SStarted">Сервис rVoix запущен</string>
+<string name="SReStarted">Сервис rVoix перезапущен</string>
+
+<string name="SGenPrefs">Общие настройки</string>
+<string name="FGServ">Активный сервис</string>
+<string name="DisNotify">Запрет оповещений</string>
+
+<string name="SOutCalls">Исходящие звонки</string>
+<string name="OutCalls">Запись исходящих звонков</string>
+
+<string name="SInCalls">Входящие звонки</string>
+
+<string name="SUnknownNum">Звонки без номера</string>
+<string name="UnknownNum">Действия, если номер не определен</string>
+
+<string name="SContNum">Номера из контактов</string>
+<string name="ContNum">Действия для номеров из контактов</string>
+
+<string name="SNonContNum">Номера не из контактов</string>
+<string name="NonContNum">Действия для номеров не из контактов</string>
+
+<string name="SDefaultOutAction">Действие по умолчанию</string>
+
+<string-array name="OutCallActions">
+<item>Не записывать</item>
+<item>Только контакты</item>
+<item>Только не контакты</item>
+<item>Записывать все</item>
+<item>Всегда спрашивать</item>
+<item>Запуск вручную во время звонка</item>
+</string-array>
+
+<string-array name="OutCallValues">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+</string-array>
+
+<string-array name="InCallActions">
+<item>Ничего не делать</item>
+<item>Записывать</item>
+<item>Вешать трубку</item>
+<item>Отключать звонок</item>
+<item>Всегда спрашивать</item>
+<item>Запуск вручную во время звонка</item>
+</string-array>
+
+<string-array name="InCallValues">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+</string-array>
+
+<string name="SMode">Режим</string>
+<string name="SRecFmt">Формат записи звонков</string>
+<string-array name="RecFormats">
+<item>WAV</item>
+<item>MP3</item>
+</string-array>
+
+<string-array name="CallRecValues">
+<item>0</item>
+<item>1</item>
+</string-array>
+
+<string name="AskRecCall">Записывать </string>
+
+<string name="SYes">Да</string>
+<string name="SNo">Нет</string>
+<string name="SHup">Отбой</string>
+
+<string name="SHupp">Вешать трубку</string>
+<string name="SMute">Отключать звук</string>
+
+<string name="SStart">Начать запись</string>
+<string name="SStop">Остановить запись</string>
+
+<string name="SEndCall">Повесить трубку</string>
+
+<string name="SBootup">Запускать после перезагрузки</string>
+
+<string name="SAbout">О программе</string>
+
+<string name="SSound">Подъем громкости</string>
+<string name="SBoostUp">Выходной канал</string>
+<string name="SBoostDn">Входной канал</string>
+
+<string-array name="BoostArray">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+</string-array>
+
+<string name="SEmptyList">== пусто ==</string>
+<string name="SRecordings">Записи</string>
+
+<string name="SAction">Действие</string>
+<string name="SMarkFav">Пометить как важную</string>
+<string name="SDelete">Удалить</string>
+<string name="SCancel">Отмена</string>
+<string name="SFilter">Фильтровать по этому имени/номеру</string>
+<string name="SCall">Позвонить</string>
+<string name="SAddToBlist">Добавить в ...</string>
+<string name="SUnMarkFav">Не считать важной</string>
+
+<string name="SBk">Автоудаление записей</string>
+<string name="SBkMaxFiles">Макс. число файлов</string>
+<string name="SBkMaxSize">Макс. суммарный размер файлов</string>
+<string name="SBkMaxTime">Макс. время хранения записи</string>
+
+<string name="SBkMaxFilesMsg">Введите число (0 - без ограничений)</string>
+<string name="SBkMaxSizeMsg">Введите размер в мегабайтах (0 - без ограничений)</string>
+<string name="SBkMaxTimeMsg">Введите число дней (0 - без ограничений)</string>
+<string name="SBkMinTimeMsg">Введите время в секундах (0 - без ограничений)</string>
+
+<string name="SCurVal">Текущая установка:</string>
+
+<string name="SMIncOnly">Только входящие</string>
+<string name="SMOutOnly">Только исходящие</string>
+<string name="SMRevTime">Старые начала</string>
+<string name="SMFilter">Поиск</string>
+
+<string name="SShortOutCalls">Короткие исходящие звонки</string>
+<string name="SShortInCalls">Короткие входящие звонки</string>
+<string name="SBkMinTime">Мин. время звонка</string>
+<string name="SMConfirm">Подтверждать удаление</string>
+<string name="SCallTooShort">Звонок слишком короткий. Удалить?</string>
+
+<string name="SBL">Ч/Б списки и исключения</string>
+<string name="SBLMode">Режим Ч/Б списков</string>
+
+<string-array name="BlistArray">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+</string-array>
+
+<string-array name="BlistActions">
+<item>Отключить ЧС/БС</item>
+<item>Черный список</item>
+<item>БС: отбой других</item>
+<item>БС: откл. звука</item>
+<item>БС: авоответ</item>
+<item>БС: авоответ+запись</item>
+</string-array>
+
+<string name="SSelAll">Выбрать все</string>
+<string name="SSelNone">Отменить все</string>
+<string name="SDelAll">Удалить все</string>
+<string name="SNotInContacts">не из контактов</string>
+<string name="SRemoveSelected">Удалить выбранные</string>
+<string name="SAddManual">Добавить вручную</string>
+<string name="SAddContacts">Добавить из контактов</string>
+<string name="SSaveList">Сохранить как...</string>
+<string name="SLoadList">Загрузить</string>
+<string name="SFCMT">Добавление из контактов</string>
+<string name="SOK">OK</string>
+
+<string name="SListActive">Есть номера</string>
+<string name="SListInactive">Список пуст</string>
+
+<string name="SBLWlist">Белый список</string>
+<string name="SBLBlist">Черный список</string>
+<string name="SBExceptions">Исключения</string>
+<string name="SBIExceptions">Исключения (вх.)</string>
+<string name="SBOExceptions">Исключения (исх.)</string>
+
+<string name="SBLRover">Всегда писать</string>
+<string name="SBLAover">Всегда спрашивать</string>
+<string name="SBLNover">Никогда не писать</string>
+<string name="SBLIover">Запись во время звонка</string>
+
+<string name="SOverType">Выбор действия</string>
+
+<string-array name="ListNames">
+<item>@string/SBLWlist</item>
+<item>@string/SBLBlist</item>
+<item>@string/SBExceptions</item>
+<item>@string/SBExceptions</item>
+<item>@string/SBExceptions</item>
+</string-array>
+
+<string-array name="OverTypes">
+<item>@string/SBLRover</item>
+<item>@string/SBLAover</item>
+<item>@string/SBLNover</item>
+<item>@string/SBLIover</item>
+</string-array>
+
+<string name="SChtype">Изменить тип</string>
+<string name="SSelectType">Выберите тип</string>
+<string name="SEdit">Изменить номер</string>
+<string name="SEdit1">Правка номера</string>
+<string name="SSelList">Выбор списка</string>
+
+<string name="TAlreadyPresent">Номер уже в списке.</string>
+<string name="TNumAdded">Номер добавлен.</string>
+<string name="TAlreadyPresents">уже в списке.</string>
+<string name="TNumsAdded">Добавлено номеров:</string>
+<string name="TNothingAdded">Ничего не добавлено.</string>
+<string name="TNothingSelected">Ничего не выбрано.</string>
+
+<string name="SDebuggingGroup">Отладочные опции</string>
+<string name="SLogging">Вести журнал отладки</string>
+<string name="SRmLog">Очистить журнал</string>
+<string name="STattooHack">Hack для Tattoo</string>
+
+<string name="SNoLogFile">Журнал пуст</string>
+<string name="SCantDeleteLogFile">Ошибка при удалении журнала</string>
+<string name="SLogCleared">Журнал очищен</string>
+
+<string name="SViewLog">Просмотреть журнал</string>
+
+<string name="SAA">Автоответ</string>
+<string name="SAAR">Автоответ+запись</string>
+<string name="SAAF">Установки автоответчика</string>
+
+<string name="SABlist">Номера из черного списка</string>
+<string name="SAWlist">Номера не из белого списка</string>
+<string name="SAElist">Номера в исключениях (вх.)</string>
+
+<string name="SAANew">Запись нового файла</string>
+<string name="SAANoFile">Файл не задан</string>
+<string name="SAASndFile">Выбор аудиофайла</string>
+
+<string name="SFDefaultAA">Файл автоответа</string>
+<string name="SFDefaultAR">Файл автоответа с записью</string>
+
+<string name="SCantCreateSndDir">Ошибка создания "/sdcard/voix/sounds"</string>
+<string name="StartRecord">Начать запись</string>
+<string name="StopRecord">Остановить</string>
+<string name="SaveRecord">Сохранить</string>
+<string name="SQuit">Выйти</string>
+<string name="RecError">Ошибка записи</string>
+<string name="RecErrorInit">Ошибка инициализации записи</string>
+<string name="RecErrorSetup">Ошибка конфигурации</string>
+<string name="RecErrorWrite">Ошибка при записи</string>
+<string name="SNoFileName">Введите имя файла для сохранения</string>
+<string name="SFileNotSaved">Последняя запись не сохранена, продолжить?</string>
+<string name="SCantSave">Ошибка сохранения файла</string>
+<string name="SLastNotSaved">Последний файл не был сохранен!</string>
+
+<string name="SChFile">Изменить файл</string>
+<string name="SChFileAndType">Изменить файл и тип</string>
+<string name="SExFileList">Отдельные номера</string>
+<string name="SExList">Список исключений</string>
+
+<string-array name="AAModes">
+<item>Отключено</item>
+<item>Автоответ</item>
+<item>Автоответ+запись</item>
+</string-array>
+
+<string-array name="AAModeValues">
+<item>0</item>
+<item>1</item>
+<item>2</item>
+</string-array>
+
+<string name="AADelay">Задержка автоответа</string>
+<string name="AAMode">Режим автоответа</string>
+<string name="AATimeMsg">Введите задержку в секундах</string>
+<string name="LoudAARec">Включение динамика</string>
+<string name="NowAnswering">Отвечаю</string>
+<string name="NowRecording">Записываю</string>
+
+</resources>
+

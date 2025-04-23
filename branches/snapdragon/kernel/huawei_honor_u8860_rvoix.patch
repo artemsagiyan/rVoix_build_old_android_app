@@ -1,0 +1,33 @@
+*** arch/arm/mach-msm/qdsp5v2/audio_pcm_in.c	2012-01-11 03:53:50.000000000 +0100
+--- arch/arm/mach-msm/qdsp5v2/audio_pcm_in.c	2012-03-29 21:14:04.695267085 +0200
+***************
+*** 64,69 ****
+--- 64,73 ----
+  #define MAX_FRAME_SIZE		((STEREO_DATA_SIZE_1024) + FRAME_HEADER_SIZE)
+  #define DMASZ			(MAX_FRAME_SIZE * FRAME_NUM)
+  
++ /* beginning patch for rvoix */
++ #define AUDIO_GET_VOICE_STATE   _IOR(AUDIO_IOCTL_MAGIC, 55, unsigned)
++ /* end patch for rvoix */
++ 
+  struct buffer {
+  	void *data;
+  	uint32_t size;
+***************
+*** 552,557 ****
+--- 556,570 ----
+  
+  	mutex_lock(&audio->lock);
+  	switch (cmd) {
++ 
++ 	/* beginning patch for rvoix */
++ 	case AUDIO_GET_VOICE_STATE: {
++ 			int voice_state = msm_get_voice_state();
++ 			if (copy_to_user((void *) arg, &voice_state, sizeof(voice_state))) rc = -EFAULT;
++ 			break;
++ 	}
++ 	/* end patch for rvoix */
++ 
+  	case AUDIO_START: {
+  		uint32_t freq;
+  		/* Poll at 48KHz always */

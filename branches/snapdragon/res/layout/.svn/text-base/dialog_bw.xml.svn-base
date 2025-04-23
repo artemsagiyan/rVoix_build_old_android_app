@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:gravity="center_vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+
+<Button android:id="@+id/ButtonDelete" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SDelete" android:minHeight="60px" android:minWidth="240px"></Button>
+<Button android:id="@+id/ButtonChType" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SChtype" android:minHeight="60px" android:minWidth="240px"></Button>
+<Button android:id="@+id/ButtonEdit" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SEdit" android:minHeight="60px" android:minWidth="240px"></Button>
+</LinearLayout>

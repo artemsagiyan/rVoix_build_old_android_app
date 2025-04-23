@@ -1,0 +1,396 @@
+diff --git a/arch/arm/mach-msm/qdsp6_1550/pcm_in.c b/arch/arm/mach-msm/qdsp6_1550/pcm_in.c
+index c580527..4012878 100644
+--- a/arch/arm/mach-msm/qdsp6_1550/pcm_in.c
++++ b/arch/arm/mach-msm/qdsp6_1550/pcm_in.c
+@@ -29,17 +29,41 @@
+ #define BUFSZ (4096)
+ #define DMASZ (BUFSZ * 2)
+ 
++#if 0
+ static DEFINE_MUTEX(pcm_in_lock);
+ static uint32_t sample_rate = 8000;
+ static uint32_t channel_count = 1;
+ static int pcm_in_opened = 0;
+ 
++#else
++
++struct msm_voicerec_mode {
++        uint32_t rec_mode;
++};
++
++
++#define AUDIO_SET_INCALL _IOW(AUDIO_IOCTL_MAGIC, 19, struct msm_voicerec_mode)
++#define AUDIO_FLAG_INCALL_MIXED       2
++
++struct pcm {
++        struct audio_client *ac;
++        uint32_t sample_rate;
++        uint32_t channel_count;
++        uint32_t buffer_size;
++        uint32_t rec_mode;
++};
++
++#endif
++
++
+ void audio_client_dump(struct audio_client *ac);
+ 
+ static long q6_in_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ {
+ 	int rc = 0;
+-
++#if 1
++     struct pcm *pcm = file->private_data;
++#endif
+ 	switch (cmd) {
+ 	case AUDIO_SET_VOLUME:
+ 		break;
+@@ -60,7 +84,7 @@ static long q6_in_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 			rc = -EFAULT;
+ 			break;
+ 		}
+-
++#if 0
+ 		mutex_lock(&pcm_in_lock);
+ 		if (file->private_data) {
+ 			rc = -EBUSY;
+@@ -71,6 +95,18 @@ static long q6_in_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 				rc = -ENOMEM;
+ 		}
+ 		mutex_unlock(&pcm_in_lock);
++#else
++
++                if (pcm->ac) {
++                        rc = -EBUSY;
++                } else {
++                        pcm->ac = q6audio_open_pcm(pcm->buffer_size,
++                                        pcm->sample_rate, pcm->channel_count,
++                                        pcm->rec_mode, acdb_id);
++                        if (!pcm->ac)
++                                rc = -ENOMEM;
++                }
++#endif
+ 		break;
+ 	}
+ 	case AUDIO_STOP:
+@@ -83,16 +119,61 @@ static long q6_in_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 			rc = -EFAULT;
+ 			break;
+ 		}
++#if 0
+ 		sample_rate = config.sample_rate;
+ 		channel_count = config.channel_count;
+ 		break;
++#else
++                if (!config.channel_count || config.channel_count > 2) {
++                        rc = -EINVAL;
++                        break;
++                }
++                if (config.sample_rate < 8000 || config.sample_rate > 48000) {
++                        rc = -EINVAL;
++                        break;
++                }
++                if (config.buffer_size < 128 || config.buffer_size > 8192) {
++                        rc = -EINVAL;
++                        break;
++                }
++                pcm->sample_rate = config.sample_rate;
++                pcm->channel_count = config.channel_count;
++                pcm->buffer_size = config.buffer_size;
++                break;
++#endif
++
+ 	}
++
++#if 1
++        case AUDIO_SET_INCALL: {
++                struct msm_voicerec_mode voicerec_mode;
++                if (copy_from_user(&voicerec_mode, (void *)arg,
++                        sizeof(struct msm_voicerec_mode)))
++                        return -EFAULT;
++                if (voicerec_mode.rec_mode != AUDIO_FLAG_READ &&
++                        voicerec_mode.rec_mode != AUDIO_FLAG_INCALL_MIXED) {
++                        pcm->rec_mode = AUDIO_FLAG_READ;
++                        pr_err("invalid rec_mode\n");
++                        rc = -EINVAL;
++                } else
++                        pcm->rec_mode = voicerec_mode.rec_mode;
++                break;
++        }
++#endif
++
+ 	case AUDIO_GET_CONFIG: {
+ 		struct msm_audio_config config;
++#if 0
+ 		config.buffer_size = BUFSZ;
+ 		config.buffer_count = 2;
+ 		config.sample_rate = sample_rate;
+ 		config.channel_count = channel_count;
++#else
++                config.buffer_size = pcm->buffer_size;
++                config.sample_rate = pcm->sample_rate;
++                config.channel_count = pcm->channel_count;
++                config.buffer_count = 2;
++#endif
+ 		config.unused[0] = 0;
+ 		config.unused[1] = 0;
+ 		config.unused[2] = 0;
+@@ -109,6 +190,7 @@ static long q6_in_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 
+ static int q6_in_open(struct inode *inode, struct file *file)
+ {
++#if 0
+ 	int rc;
+ 
+ 	pr_info("pcm_in: open\n");
+@@ -122,6 +204,22 @@ static int q6_in_open(struct inode *inode, struct file *file)
+ 	}
+ 	mutex_unlock(&pcm_in_lock);
+ 	return rc;
++#else
++        struct pcm *pcm;
++
++        pr_info("pcm_in: open\n");
++        pcm = kzalloc(sizeof(struct pcm), GFP_KERNEL);
++
++        if (!pcm)
++                return -ENOMEM;
++
++        pcm->channel_count = 1;
++        pcm->sample_rate = 8000;
++        pcm->buffer_size = BUFSZ;
++        pcm->rec_mode = AUDIO_FLAG_READ;
++        file->private_data = pcm;
++        return 0;
++#endif
+ }
+ 
+ static ssize_t q6_in_read(struct file *file, char __user *buf,
+@@ -132,9 +230,13 @@ static ssize_t q6_in_read(struct file *file, char __user *buf,
+ 	const char __user *start = buf;
+ 	int xfer;
+ 	int res;
+-
++#if 0
+ 	mutex_lock(&pcm_in_lock);
+ 	ac = file->private_data;
++#else
++        struct pcm *pcm = file->private_data;
++        ac = pcm->ac;
++#endif
+ 	if (!ac) {
+ 		res = -ENODEV;
+ 		goto fail;
+@@ -169,20 +271,28 @@ static ssize_t q6_in_read(struct file *file, char __user *buf,
+ 	}
+ fail:
+ 	res = buf - start;
++#if 0
+ 	mutex_unlock(&pcm_in_lock);
+-
++#endif
+ 	return res;
+ }
+ 
+ static int q6_in_release(struct inode *inode, struct file *file)
+ {
+ 	int rc = 0;
++#if 0
+ 	mutex_lock(&pcm_in_lock);
+ 	if (file->private_data)
+ 		rc = q6audio_close(file->private_data);
+ 	pcm_in_opened = 0;
+ 	mutex_unlock(&pcm_in_lock);
+ 	pr_info("pcm_in: release\n");
++#else
++        struct pcm *pcm = file->private_data;
++        if (pcm->ac)
++                rc = q6audio_close(pcm->ac);
++        kfree(pcm);
++#endif
+ 	return rc;
+ }
+ 
+diff --git a/arch/arm/mach-msm/qdsp6_1550/q6audio.c b/arch/arm/mach-msm/qdsp6_1550/q6audio.c
+index a972b97..7907d5e 100644
+--- a/arch/arm/mach-msm/qdsp6_1550/q6audio.c
++++ b/arch/arm/mach-msm/qdsp6_1550/q6audio.c
+@@ -128,11 +128,11 @@ static struct q6_hw_info q6_audio_hw[Q6_HW_COUNT] =
+ 
+ extern int global_now_phone_call;
+ 
+-static struct audio_client * audio_test(void);
++//static struct audio_client * audio_test(void);
+ static void callback(void *data, int len, void *cookie);
+ static int audio_init(struct audio_client *ac);
+ static int audio_info(struct audio_client *ac);
+-static int q6audio_init_rx_volumes();
++static int q6audio_init_rx_volumes(void);
+ 
+ static struct wake_lock wakelock;
+ static struct wake_lock idlelock;
+@@ -168,7 +168,7 @@ static struct q6audio_analog_ops default_analog_ops;
+ static struct q6audio_analog_ops *analog_ops = &default_analog_ops;
+ static uint32_t tx_clk_freq = 8000;
+ static int tx_mute_status = 0;
+-static int rx_vol_level = 100;
++//static int rx_vol_level = 100;
+ static char acdb_file[64] = "default.acdb";
+ static uint32_t tx_acdb = 0;
+ static uint32_t rx_acdb = 0;
+@@ -293,7 +293,7 @@ static inline int adie_mute_path(struct dal_client *client,
+ static int adie_refcount;
+ 
+ static struct dal_client *adie;
+-static struct dal_client *adsp;
++//static struct dal_client *adsp;
+ static struct dal_client *acdb;
+ 
+ static int adie_enable(void)
+@@ -538,7 +538,7 @@ static int audio_out_open(struct audio_client *ac, uint32_t bufsz,
+ }
+ 
+ static int audio_in_open(struct audio_client *ac, uint32_t bufsz,
+-             uint32_t rate, uint32_t channels)
++             uint32_t flags, uint32_t rate, uint32_t channels)
+ {
+     int r;
+     struct adsp_open_command rpc;
+@@ -552,7 +552,14 @@ static int audio_in_open(struct audio_client *ac, uint32_t bufsz,
+ 
+     rpc.numdev = 1;
+     rpc.dev[0] = ADSP_AUDIO_DEVICE_ID_DEFAULT;
+-    rpc.stream_context = ADSP_AUDIO_DEVICE_CONTEXT_RECORD;
++//    rpc.stream_context = ADSP_AUDIO_DEVICE_CONTEXT_RECORD;
++
++    if (flags == AUDIO_FLAG_READ)
++		rpc.stream_context = ADSP_AUDIO_DEVICE_CONTEXT_RECORD;
++    else
++		rpc.stream_context = ADSP_AUDIO_DEVICE_CONTEXT_MIXED_RECORD;
++
++
+     rpc.buf_max_size = bufsz;
+ 
+     rpc.format = ADSP_AUDIO_FORMAT_PCM;
+@@ -773,13 +780,14 @@ static int audio_qcelp_open(struct audio_client *ac, uint32_t bufsz,
+     struct msm_audio_qcelp_config *qf = data;
+     struct adsp_open_command rpc;
+     struct adsp_audio_standard_format *fmt;
+-    union adsp_audio_format *ptr;
++//    union adsp_audio_format *ptr;
+ 
+ 
+     mutex_lock(&open_mem_lock);
+     memset(&rpc, 0, sizeof(rpc));
+     fmt = (struct adsp_audio_standard_format *)params_data;
+-    memset(ptr, 0, sizeof(struct adsp_audio_standard_format));
++//    memset(ptr, 0, sizeof(struct adsp_audio_standard_format));
++    memset(fmt, 0, sizeof(struct adsp_audio_standard_format));
+ 
+     rpc.numdev = 1;
+     rpc.dev[0] = ADSP_AUDIO_DEVICE_ID_DEFAULT;
+@@ -2153,6 +2161,32 @@ done:
+     return 0;
+ }
+ 
++#if 1
++static void adie_rx_path_enable(uint32_t acdb_id)
++{
++        if (audio_rx_path_id) {
++                adie_enable();
++                adie_set_path(adie, audio_rx_path_id, ADIE_PATH_RX);
++                adie_set_path_freq_plan(adie, ADIE_PATH_RX, 48000);
++
++                adie_proceed_to_stage(adie, ADIE_PATH_RX,
++                                ADIE_STAGE_DIGITAL_READY);
++                adie_proceed_to_stage(adie, ADIE_PATH_RX,
++                                ADIE_STAGE_DIGITAL_ANALOG_READY);
++        }
++}
++
++static void q6_rx_path_enable(int reconf, uint32_t acdb_id)
++{
++        audio_update_acdb(audio_rx_device_id, acdb_id);
++        if (!reconf)
++                qdsp6_devchg_notify(ac_control, ADSP_AUDIO_RX_DEVICE, audio_rx_device_id);
++        qdsp6_standby(ac_control);
++        qdsp6_start(ac_control);
++}
++
++#endif
++
+ struct audio_client *q6audio_open_pcm(uint32_t bufsz, uint32_t rate,
+                       uint32_t channels, uint32_t flags, uint32_t acdb_id)
+ {
+@@ -2176,6 +2210,7 @@ struct audio_client *q6audio_open_pcm(uint32_t bufsz, uint32_t rate,
+ 
+     mutex_lock(&audio_path_lock);
+ 
++#if 0
+     if (ac->flags & AUDIO_FLAG_WRITE) 
+     {
+         audio_rx_path_refcount++;
+@@ -2247,7 +2282,47 @@ struct audio_client *q6audio_open_pcm(uint32_t bufsz, uint32_t rate,
+         }
+     }
+ //    printk("about to start session\n");
++#else
++        if (ac->flags & AUDIO_FLAG_WRITE) {
++                audio_rx_path_refcount++;
++                if (audio_rx_path_refcount == 1) {
++                        _audio_rx_clk_enable();
++                        q6_rx_path_enable(0, acdb_id);
++                        adie_rx_path_enable(acdb_id);
++                }
++        } else {
++                /* TODO: consider concurrency with voice call */
++                if (audio_tx_path_refcount > 0) {
++                        tx_clk_freq = 8000;
++                } else {
++                        tx_clk_freq = rate;
++                }
++                audio_tx_path_refcount++;
++                if (audio_tx_path_refcount == 1) {
++                        tx_clk_freq = rate;
++                        _audio_tx_clk_enable();
++                        _audio_tx_path_enable(0, acdb_id);
++                }
++        }
+ 
++        for (retry = 5;;retry--) {
++                if (ac->flags & AUDIO_FLAG_WRITE)
++                        rc = audio_out_open(ac, bufsz, rate, channels);
++                else
++                        rc = audio_in_open(ac, bufsz, flags, rate, channels);
++                if (rc == 0)
++                        break;
++                if (retry == 0)
++                        BUG();
++                pr_err("q6audio: open pcm error %d, retrying\n", rc);
++                msleep(1);
++        }
++
++        if (ac->flags & AUDIO_FLAG_WRITE) {
++                if (audio_rx_path_refcount == 1)
++                        audio_rx_analog_enable(1);
++        }
++#endif
+     mutex_unlock(&audio_path_lock);
+ 
+     for (retry = 5;;retry--) 
+@@ -2536,6 +2611,7 @@ int acdb_get_table(int dev_id, int sample_rate)
+         return 0;
+ }
+ 
++#if 0
+ static struct audio_client * audio_test(void)
+ {
+     struct audio_client *ac = 0;
+@@ -2648,6 +2724,7 @@ static struct audio_client * audio_test(void)
+ 
+     return ac2;
+ }
++#endif
+ 
+ 
+ // END OF FILE

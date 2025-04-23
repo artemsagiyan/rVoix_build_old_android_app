@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/30/trunk/jni
+END
+voix.c
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/29/trunk/jni/voix.c
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/30/trunk/jni/Android.mk
+END
+voix_reentrant.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/2/trunk/jni/voix_reentrant.c
+END
+build
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/2/trunk/jni/build
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/11/branches/espresso-integration/system-changes/system/lib
+END
+liblame.so
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/11/branches/espresso-integration/system-changes/system/lib/liblame.so
+END
+libvoix.so
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/11/branches/espresso-integration/system-changes/system/lib/libvoix.so
+END

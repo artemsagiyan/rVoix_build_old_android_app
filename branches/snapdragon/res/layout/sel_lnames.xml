@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:gravity="center_vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+
+<Button android:id="@+id/ButtonWlist" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SBLWlist" android:minHeight="60px" android:minWidth="240px"></Button>
+<Button android:id="@+id/ButtonBlist" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SBLBlist" android:minHeight="60px" android:minWidth="240px"></Button>
+<Button android:id="@+id/ButtonIElist" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SBIExceptions" android:minHeight="60px" android:minWidth="240px"></Button>
+<Button android:id="@+id/ButtonOElist" android:textSize="16dp" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/SBOExceptions" android:minHeight="60px" android:minWidth="240px"></Button>
+</LinearLayout>

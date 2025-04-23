@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix
+END
+FContentList.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/FContentList.java
+END
+Prefs.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/Prefs.java
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/Log.java
+END
+Browser.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/Browser.java
+END
+IRVoixCallback.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/IRVoixCallback.aidl
+END
+Secretaire.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/Secretaire.java
+END
+Cont3.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/Cont3.java
+END
+Cont5.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/Cont5.java
+END
+BootRec.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/BootRec.java
+END
+BWFilesBrowser.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/BWFilesBrowser.java
+END
+AskDelete.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/AskDelete.java
+END
+TattooHack.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/TattooHack.java
+END
+RVoixSrv.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/6/branches/espresso-integration/src/com/voix/RVoixSrv.java
+END
+Contix.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/Contix.java
+END
+BWList.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/BWList.java
+END
+AskOnCall.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/AskOnCall.java
+END
+ContSel.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/ContSel.java
+END
+IRVoix.aidl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/5/branches/espresso-integration/src/com/voix/IRVoix.aidl
+END
